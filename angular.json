@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angluar-practice-project-1": {
+    "angular-practice-project-1": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/angluar-practice-project-1",
+            "outputPath": "dist/angular-practice-project-1",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angluar-practice-project-1:build:production"
+              "buildTarget": "angular-practice-project-1:build:production"
             },
             "development": {
-              "buildTarget": "angluar-practice-project-1:build:development"
+              "buildTarget": "angular-practice-project-1:build:development"
             }
           },
           "defaultConfiguration": "development"
