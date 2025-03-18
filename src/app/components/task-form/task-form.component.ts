@@ -22,8 +22,8 @@ import { MatSelectModule } from '@angular/material/select';
 })
 export class TaskFormComponent {
   private fb = inject(FormBuilder);
-  addressForm = this.fb.group({
-    email: [null, Validators.required],
+  taskForm = this.fb.group({
+    name: [null, Validators.required],
   });
 
   hasUnitNumber = false;
