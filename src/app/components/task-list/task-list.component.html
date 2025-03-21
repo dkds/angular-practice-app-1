@@ -1,1 +1,14 @@
 <p>task-list works!</p>
+<div class="">
+    @for (task of (tasks$ | async); track $index) {
+    <div>
+        <div>{{ task.title }}</div>
+        <div>{{ task.description }}</div>
+        <div>{{ task.completed ? 'Completed' : 'Pending' }}</div>
+        <div>
+            <button (click)="toggleTask(task)">Toggle Task</button>
+        <button (click)="deleteTask(task)">Delete Task</button>
+        </div>
+    </div>
+    }
+</div>
