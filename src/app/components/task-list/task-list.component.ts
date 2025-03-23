@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Task } from '../../models/task.model';
 import { AsyncPipe } from '@angular/common';
+import { TaskState } from '../../store/task.reducer';
 
 @Component({
   selector: 'app-task-list',
@@ -14,7 +15,7 @@ import { AsyncPipe } from '@angular/common';
 export class TaskListComponent {
   tasks$: Observable<Task[]>;
 
-  constructor(private store: Store<any>) {
+  constructor(private store: Store<TaskState>) {
     this.tasks$ = this.store.select('tasks');
   }
 
