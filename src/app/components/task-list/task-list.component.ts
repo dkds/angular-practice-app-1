@@ -1,9 +1,10 @@
+import { AsyncPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Task } from '../../models/task.model';
-import { AsyncPipe } from '@angular/common';
 import { TaskState } from '../../store/task.reducer';
+import { searchTasks } from '../../store/task.selectors';
 
 @Component({
   selector: 'app-task-list',
@@ -16,7 +17,7 @@ export class TaskListComponent {
   tasks$: Observable<Task[]>;
 
   constructor(private store: Store<TaskState>) {
-    this.tasks$ = this.store.select('tasks');
+    this.tasks$ = this.store.select(searchTasks);
   }
 
   toggleTask(task: Task): void {
