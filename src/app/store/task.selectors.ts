@@ -1,9 +1,10 @@
 import { createSelector } from '@ngrx/store';
+import { AppState } from '.';
 import { Task } from '../models/task.model';
-import { TaskState } from './task.reducer';
 
-export const allTasks = (state: TaskState) => state.tasks;
-export const searchQuery = (state: TaskState) => state.searchQuery;
+export const allTasks = (state: AppState) => state.task?.tasks || [];
+export const searchQuery = (state: AppState) => state.task?.searchQuery || '';
+
 export const searchTasks = createSelector(
   searchQuery,
   allTasks,

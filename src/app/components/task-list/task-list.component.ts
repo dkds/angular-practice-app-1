@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Task } from '../../models/task.model';
-import { TaskState } from '../../store/task.reducer';
+import { AppState } from '../../store';
 import { searchTasks } from '../../store/task.selectors';
 
 @Component({
@@ -16,7 +16,7 @@ import { searchTasks } from '../../store/task.selectors';
 export class TaskListComponent {
   tasks$: Observable<Task[]>;
 
-  constructor(private store: Store<TaskState>) {
+  constructor(private store: Store<AppState>) {
     this.tasks$ = this.store.select(searchTasks);
   }
 

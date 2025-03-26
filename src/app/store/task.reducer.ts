@@ -14,13 +14,9 @@ const initialState: TaskState = {
 export const taskReducer = createReducer(
   initialState,
   on(addTask, (state, { task }) => {
-    console.log('Adding task:', task);
-    console.log('Current state:', state);
-    console.log('New state:', { ...state, tasks: [...state.tasks, task] });
-    
     return {
       ...state,
       tasks: [...state.tasks, task],
     };
-  }),
+  })
 );

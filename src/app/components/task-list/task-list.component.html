@@ -1,6 +1,5 @@
 <p>task-list works!</p>
 <div class="">
-    {{tasks$ | async}}
     @for (task of (tasks$ | async); track $index) {
     <div>
         <div>{{ task.title }}</div>

@@ -9,9 +9,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Task } from '../../models/task.model';
+import { AppState } from '../../store';
 import { addTask } from '../../store/task.actions';
-import { TaskState } from '../../store/task.reducer';
 import { searchTasks } from '../../store/task.selectors';
+import { TaskState } from '../../store/task.reducer';
 
 @Component({
   selector: 'app-task-form',
@@ -35,9 +36,9 @@ export class TaskFormComponent {
     name: [null, Validators.required],
   });
 
-  constructor(private store: Store<TaskState>) {
+  constructor(private store: Store<AppState>) {
     this.tasks$ = this.store.select(searchTasks);
-    this.store.select(state => state.tasks).subscribe((tasks) => {
+    this.store.select(searchTasks).subscribe((tasks) => {
       console.log('searchTasks', tasks);
     });
   }
